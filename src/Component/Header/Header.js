@@ -1,9 +1,31 @@
-import React from "react";
-import { Main } from "./styleHeader";
+import React, { useState } from "react";
+import { Main, 
+  Menu, 
+  StyledButton,
+  HelpButton
+} from "./styleHeader";
+import InstructionsModal from "../InstructionsModal/Modal";
+
 
 const Header = () => {
+  
+  const [showModal, setShowModal] = useState(false);
+  const [hideModal, setHideModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return(
-    <Main>Termo</Main>
+    <Main>
+      <Menu>
+        <StyledButton>
+          <HelpButton onClick={() => toggleModal()}>?</HelpButton>
+          {showModal &&  <InstructionsModal toggleModal={toggleModal} />}
+        </StyledButton>
+        TERMO
+      </Menu>
+    </Main>
   )
 }
 
