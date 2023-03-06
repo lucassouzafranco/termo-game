@@ -17,7 +17,6 @@ export const Menu = styled.div`
   text-align: center;
   width: 70%;
   height: 50%;
-  border: 1px solid white;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,4 +34,13 @@ export const StyledButton = styled.button`
 
 export const HelpButton = styled.div`
   font-weight: 700;
+`
+
+export const IconStyle = styled.div`
+  font-size: medium;
+  padding-top: 0.2em;
+
+  & a {
+    color: #B7AEB4;
+  }
 `
