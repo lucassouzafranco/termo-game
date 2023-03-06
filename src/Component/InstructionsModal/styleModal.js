@@ -12,7 +12,7 @@ export const ModalContent = styled.div`
   color: #BBBBBB;
   padding-top: 1em;
   font-family: 'Mitr', sans-serif;
-  font-size: x-large;
+  font-size: large;
   font-weight: 300;
   display: flex;
   padding: 1.3em;
