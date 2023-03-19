@@ -40,7 +40,6 @@ export const IconStyle = styled.div`
   font-size: medium;
   padding-top: 0.2em;
   padding-left: 0.01em;
-
   & a {
     color: #B7AEB4;
   }
