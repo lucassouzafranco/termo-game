@@ -4,31 +4,43 @@ import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Game() {
-
   const [randomWord, setRandomWord] = useState({});
-  const [chosenWord, setChosenWord] = useState('');
-  const [stopSearch, setStopSearch] = useState(false);
 
+    // use useEffect to fetch a random word from API every 220ms
   useEffect(() => {
-    axios.get('https://api.dicionario-aberto.net/random')
-      .then(response => {
-        setRandomWord(response.data.word);
-        console.log(randomWord);
+    // set intervalID to clear the interval when the component is unmounted
+    const intervalID = setInterval(async () => {
+      try {
+        // fetch a random word from the API
+        const response = await axios.get('https://api.dicionario-aberto.net/random');
+        // extract the word data from the response
+        const wordData = response.data;
+        
+        // if the word has a length of 5, log it to the console and clear the interval
+        if (wordData.word.length === 5) {
+          console.log(wordData);
+          clearInterval(intervalID);
 
-        if (randomWord.length === 4) {
-          setChosenWord(randomWord);
-          setStopSearch(true);
+          // If you don't update the state, the randomWord variable 
+          // will still hold the previous word data, and you won't be able to 
+          // compare the length of the new word in the next iteration.
+        } else {
+          setRandomWord(wordData);
         }
-      })
-      .catch(error => {
-        console.log(error); 
-      });
-  }, []); //https://www.google.com/search?q=condition+in+useeffect+dependency&oq=condition+in+the+useEffect+&aqs=edge.2.69i57j0i22i30l4.8051j0j1&sourceid=chrome&ie=UTF-8
+      } catch (error) {
+        console.log(error);
+      }
+    }, 230);
+
+    return () => {
+      clearInterval(intervalID);
+    };
+  }, []);
 
   return (
     <Fragment>
       <div className="Game">
-        <Header/>
+        <Header />
       </div>
     </Fragment>
   );
