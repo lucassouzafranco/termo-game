@@ -1,5 +1,6 @@
 import './Game.css';
 import Header from './Component/Header/Header';
+import GameBoard from './Component/GameBoard/GameBoard';
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -18,8 +19,8 @@ function Game() {
         
         // if the word has a length of 5, log it to the console and clear the interval
         if (wordData.word.length === 5) {
-          console.log(wordData);
           clearInterval(intervalID);
+          console.log(wordData);
 
           // If you don't update the state, the randomWord variable 
           // will still hold the previous word data, and you won't be able to 
@@ -30,7 +31,7 @@ function Game() {
       } catch (error) {
         console.log(error);
       }
-    }, 230);
+    }, 400);
 
     return () => {
       clearInterval(intervalID);
@@ -41,6 +42,7 @@ function Game() {
     <Fragment>
       <div className="Game">
         <Header />
+        <GameBoard />
       </div>
     </Fragment>
   );

@@ -8,7 +8,7 @@ export const Main = styled.main`
   padding-top: 0.1em;
 `
 
-export const Menu = styled.div`
+export const Menu = styled.menu`
   background-color: #6E5C62;
   font-family: Mitr, sans-serif;
   font-weight: 800;

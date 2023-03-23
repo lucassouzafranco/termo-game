@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { Main, Menu, StyledButton, HelpButton, IconStyle} from "./styleHeader";
 import {BsGithub} from 'react-icons/bs';
-import {ModalContent } from "../Modal/styleModal";
+import {ModalContent } from "../InstructionsModal/styleInstructionsModal";
 
 Modal.setAppElement("#root");
 
