@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
-import { Main, Menu, StyledButton, HelpButton, IconStyle} from "./styleHeader";
-import {BsGithub} from 'react-icons/bs';
-import {ModalContent } from "../InstructionsModal/styleInstructionsModal";
+import { Main, Menu, StyledButton, HelpButton, IconStyle } from "./styleHeader";
+import { BsGithub } from 'react-icons/bs';
+import InstructionsModal from '../InstructionsModal';
 
-Modal.setAppElement("#root");
-
-const Header = () => {
-  const [showModal, setShowModal] = useState(false);
+const Header = (props) => {
+  const [showModal, setShowModal] = useState(true);
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    console.log('reconheci o click');
   };
 
   return (
@@ -19,34 +17,20 @@ const Header = () => {
         <StyledButton>
           <HelpButton onClick={toggleModal}>?</HelpButton>          
         </StyledButton>
-        TERMO
+        TERMO CLONE
         <StyledButton>
           <IconStyle><a href="https://github.com/lucassouzafranco"><BsGithub/></a></IconStyle>
         </StyledButton>
-        <Modal
-          isOpen={showModal}
-          onRequestClose={toggleModal}
-          contentLabel="Instructions Modal"
-          style={{
-            overlay: {
-              backgroundColor: "rgba(0, 0, 0, 0.5)",
-              zIndex: 9999
-            },
-            content: {
-              margin: "2em auto",
-              backgroundColor: "#312B2D",
-              alignItems: "center",
-              justifyContent: "center",
-              outline: "none",
-              border: "none",
-              width: "50vw",
-              borderRadius: "8px"
-            },
-          }}
-        >
-        <ModalContent />
-        </Modal>
       </Menu>
+      {/* Conditionally render the InstructionsModal component */}
+      {showModal && (
+        <InstructionsModal isOpen={true} onClose={toggleModal}>
+          {/* Place the content for the modal here */}
+          <p>
+            {props.children}
+          </p>
+        </InstructionsModal>
+      )}
     </Main>
   );
 };

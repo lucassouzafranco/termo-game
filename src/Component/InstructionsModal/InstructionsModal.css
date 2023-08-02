@@ -1,0 +1,99 @@
+/* InstructionsModal.css */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(84, 81, 84, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background-color: #312B2D;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 58%;
+  max-height: 86%;
+  color: #BBBBBB;
+  font-weight: 300;
+  font-size: x-large;
+  padding-top: 2em;
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+  overflow: auto;
+  border: 1px solid red;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructions {
+  margin-top: 10px;
+  white-space: pre-wrap;
+}
+
+/* Additional CSS styles for the modal content */
+#help {
+  line-height: 1em;
+  overflow: auto;
+  pointer-events: auto;
+}
+
+#help p,
+#help span {
+  margin: 0;
+  padding: 0;
+}
+
+#help .help_multi {
+  margin-bottom: 1em;
+}
+
+#help .help_termo {
+  white-space: pre-wrap;
+  margin-bottom: 15px;
+}
+
+.example {
+  margin-bottom: 5px;
+  display: flex;
+  height: 7.6vh;
+  color: white;
+}
+
+#help .letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #4c4347;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 1.1em;
+  cursor: default;
+  padding: 0.5em;
+}
+
+#help .right {
+  background-color: #3aa394;
+  border: 3px solid #3aa394;
+}
+
+#help .letterRight {
+  margin-top: 5em;
+}
+
+#help .wrong {
+  background-color: #eb8b8b;
+}
+
+#help .place {
+  background-color: #f0f0f0;
+}
