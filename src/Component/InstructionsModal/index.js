@@ -2,11 +2,13 @@ import React from "react";
 import "../InstructionsModal/InstructionsModal.css";
 
 const InstructionsModal = ({ isOpen, onClose }) => {
-  const modalContent = (
-    <div id="help">
-      <p className="paragraphContainer">
-        Descubra a palavra certa em 6 tentativas. Depois de cada tentativa as peças mostram o quão perto você está da solução.
-      </p>
+  const modalContainer = (
+    <div className="modalContent">
+      <div className="paragraphContainer">
+        <p>
+          Descubra a palavra certa em 6 tentativas. Depois de cada tentativa as peças mostram o quão perto você está da solução.
+        </p>
+      </div>
       <div className="example">
         <span role="text" aria-label="letra T correta" className="letter right">T</span>
         <span role="text" aria-label="letra E" className="letter">E</span>
@@ -15,7 +17,7 @@ const InstructionsModal = ({ isOpen, onClose }) => {
         <span role="text" aria-label="letra A" className="letter">O</span>
       </div>
       <div className="paragraphContainer">
-        <p className="help_multi">
+        <p>
           A letra <span className="letter right">T</span>faz parte da palavra e está na posição correta.
         </p>
       </div>
@@ -29,8 +31,8 @@ const InstructionsModal = ({ isOpen, onClose }) => {
       </div>
 
       <div className="paragraphContainer">
-        <p className="help_multi">
-          A letra <span className="letter exists">O</span>faz parte da palavra, mas em outra posição.
+        <p>
+          A letra <span className="letter exists">O</span>faz parte da palavra e está na posição correta.
         </p>
       </div>
 
@@ -42,44 +44,28 @@ const InstructionsModal = ({ isOpen, onClose }) => {
         <span role="text" aria-label="letra R" className="letter">R</span>
       </div>
       <div className="paragraphContainer">
-        <p className="help_multi">
+        <p>
           A letra <span className="letter wrong">M</span>não faz parte da palavra.
         </p>
       </div>
-      
+
       <div className="paragraphContainer">
-        <p className="help_multi">
-        Os acentos são preenchidos automaticamente, e não são 
-        considerados nas dicas.
+        <p>
+          Os acentos são preenchidos automaticamente, e não são
+          considerados nas dicas.
         </p>
       </div>
       <div className="paragraphContainer">
-        <p className="help_multi">
+        <p>
           As palavras podem possuir letras repetidas.
         </p>
       </div>
 
       <div className="paragraphContainer">
-        <p className="help_multi">
+        <p>
           Recarregue a página e jogue quantas vezes quiser :)
         </p>
       </div>
-      {/*
-      <p>
-        A letra <span className="letter wrong">G</span> não faz parte da palavra.
-      </p>
-      <p>
-        Os acentos são preenchidos automaticamente, e não são considerados nas dicas.
-      </p>
-      <p>
-        As palavras podem possuir letras repetidas.
-      </p>
-  <div className="help_termo">
-        <br />
-        <p>
-          Uma palavra nova aparece a cada dia.
-        </p>
-      </div>*/}
     </div>
   );
 
@@ -87,11 +73,9 @@ const InstructionsModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="modalOverlay" onClick={onClose}>
-      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-        <div className="modalHeader">
-        </div>
+      <div className="modalContainer" onClick={(e) => e.stopPropagation()}>
         <div className="instructions">
-          {modalContent}
+          {modalContainer}
         </div>
       </div>
     </div>
