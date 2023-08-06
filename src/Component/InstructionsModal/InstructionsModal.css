@@ -21,11 +21,9 @@
   color: #BBBBBB;
   font-weight: 300;
   font-size: x-large;
-  padding-top: 2em;
   padding-left: 1.3em;
   padding-right: 1.3em;
   overflow: auto;
-  border: 1px solid red;
 }
 
 .modalHeader {
@@ -35,7 +33,6 @@
 }
 
 .instructions {
-  margin-top: 10px;
   white-space: pre-wrap;
 }
 
@@ -52,21 +49,31 @@
   padding: 0;
 }
 
-#help .help_multi {
-  margin-bottom: 1em;
-}
-
 #help .help_termo {
   white-space: pre-wrap;
-  margin-bottom: 15px;
 }
 
 .example {
-  margin-bottom: 5px;
-  display: flex;
+  display: inline-flex;
   height: 7.6vh;
   color: white;
+  margin-top: 1em;
 }
+
+.example .letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #4c4347;
+  border-radius: 5px;
+  margin-right: 5px;
+  font-weight: 500;
+  font-size: 1.1em;
+  cursor: default;
+  padding: 0.5em;
+  width: 3.6vw; 
+}
+
 
 #help .letter {
   display: flex;
@@ -84,16 +91,53 @@
 #help .right {
   background-color: #3aa394;
   border: 3px solid #3aa394;
+  color: white;
 }
 
-#help .letterRight {
-  margin-top: 5em;
+#help .exists {
+  background-color:#D3AD69;
+  border: 5px solid #D3AD69;
+  color: white;
 }
 
 #help .wrong {
-  background-color: #eb8b8b;
+  background-color: #191516;
+  border: 5px solid #191516;
+  color: #5E5C5C;
 }
 
-#help .place {
+.help .place {
   background-color: #f0f0f0;
+}
+
+.help p {
+  margin-top: 1em;
+}
+
+.paragraphContainer {
+  height: 12vh;
+  width: 100%;
+  display: inline-flex;
+}
+
+.help_multi {
+  white-space: pre-wrap;
+  display: inline-flex; 
+  align-items: center; 
+}
+
+.paragraphContainer .letter.right{
+  height: 1%;
+  width: 3%;
+  height: 0.7em;
+}
+
+.paragraphContainer .letter.exists{
+  height: 1%;
+  width: 3%;
+}
+
+.paragraphContainer .letter.wrong{
+  height: 1%;
+  width: 3%;
 }
