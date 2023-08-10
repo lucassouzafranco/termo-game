@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import {InputContainer, LetterBlocks} from './styleInputFields';
+import {InputContainer, LetterBlocks} from './styleWordBox';
 
 const InputFields = () => {
   return(

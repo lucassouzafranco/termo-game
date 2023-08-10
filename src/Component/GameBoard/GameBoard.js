@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { GameBoardWrapper} from "./styleGameBoard";
-import InputFields from "../InputFields/InputFields";
+import InputFields from "../WordBox";
 
 const GameBoard = () => {
   return(

@@ -1,21 +1,29 @@
 import React from "react";
-import "../InstructionsModal/InstructionsModal.css";
+import "./InstructionsModal.css";
+import {
+  ModalContainer,
+  ModalOverlay, 
+  ModalContent,
+  ParagraphContainer,
+  Example,
+  Letter
+} from "./styleInstructionsModal";
 
 const InstructionsModal = ({ isOpen, onClose }) => {
   const modalContainer = (
-    <div className="modalContent">
-      <div className="paragraphContainer">
+    <ModalContent>
+      <ParagraphContainer>
         <p>
           Descubra a palavra certa em 6 tentativas. Depois de cada tentativa as peças mostram o quão perto você está da solução.
         </p>
-      </div>
-      <div className="example">
-        <span role="text" aria-label="letra T correta" className="letter right">T</span>
+      </ParagraphContainer>
+      <Example>
+        <Letter isRight>T</Letter>
         <span role="text" aria-label="letra E" className="letter">E</span>
         <span role="text" aria-label="letra R" className="letter">R</span>
         <span role="text" aria-label="letra M" className="letter">M</span>
         <span role="text" aria-label="letra A" className="letter">O</span>
-      </div>
+      </Example>
       <div className="paragraphContainer">
         <p>
           A letra <span className="letter right">T</span>faz parte da palavra e está na posição correta.
@@ -66,19 +74,17 @@ const InstructionsModal = ({ isOpen, onClose }) => {
           Recarregue a página e jogue quantas vezes quiser :)
         </p>
       </div>
-    </div>
+    </ModalContent>
   );
 
   if (!isOpen) return null;
 
   return (
-    <div className="modalOverlay" onClick={onClose}>
-      <div className="modalContainer" onClick={(e) => e.stopPropagation()}>
-        <div className="instructions">
+    <ModalOverlay onClick={onClose}>
+      <ModalContainer onClick={(e) => e.stopPropagation()}>
           {modalContainer}
-        </div>
-      </div>
-    </div>
+      </ModalContainer>
+    </ModalOverlay>
   );
 };
 
